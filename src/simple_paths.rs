@@ -57,8 +57,7 @@ where
                                 .collect::<TargetColl>();
                             return Some(path);
                         }
-                    } else if !visited.contains(&child) {
-                        visited.insert(child);
+                    } else if visited.insert(child) {
                         stack.push(graph.neighbors_directed(child, Outgoing));
                     }
                 } else {
